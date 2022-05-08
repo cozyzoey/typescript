@@ -1,14 +1,14 @@
 let appels: number = 5;
-let speed: string = 'fast';
+let speed: string = "fast";
 
 let nothingMuch: null = null;
 let nothing: undefined = undefined;
 
-// build in objects
+// built in objects
 let now: Date = new Date();
 
 // Array
-let colors: string[] = ['red', 'green', 'blue'];
+let colors: string[] = ["red", "green", "blue"];
 let myNumbers: number[] = [1, 2, 3];
 let truths: boolean[] = [true, true, false];
 
@@ -33,10 +33,10 @@ const json = '{"x: 10, "y: 20}';
 const coordinates: { x: number; y: number } = JSON.parse(json);
 
 // 2) 변수를 선언하고 나중에 초기화할 때
-let words = ['red', 'green', 'blue'];
+let words = ["red", "green", "blue"];
 let foundWord: boolean;
 for (let i = 0; i < words.length; i++) {
-  if (words[i] === 'green') {
+  if (words[i] === "green") {
     foundWord = true;
   }
 }
