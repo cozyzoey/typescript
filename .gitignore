@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+**/dist
 /tmp
 /out-tsc
 
@@ -49,6 +50,7 @@ bower_components
 .sass-cache
 connect.lock
 typings
+**/.cache/
 
 # Logs
 logs
