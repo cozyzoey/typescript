@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CsvFilleReader = void 0;
+exports.CsvFileReader = void 0;
 const fs_1 = __importDefault(require("fs"));
-class CsvFilleReader {
+class CsvFileReader {
     constructor(filename) {
         this.filename = filename;
         this.data = [];
@@ -19,4 +19,4 @@ class CsvFilleReader {
             .map((row) => row.split(","));
     }
 }
-exports.CsvFilleReader = CsvFilleReader;
+exports.CsvFileReader = CsvFileReader;
