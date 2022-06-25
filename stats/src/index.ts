@@ -1,17 +1,20 @@
 import { MatchReader } from "./MatchReader";
+import { CsvFilleReader } from "./CsvFileReader";
 import { MatchResult } from "./MatchResult";
+import { WinsAnalysis } from "./analyzers/WinsAnalysis";
+import { ConsoleReport } from "./reportTargets/ConsoleReport";
+import { Summary } from "./Summary";
 
-const reader = new MatchReader("football.csv");
-reader.read();
+// 1. 'DataReader' 인터페이스를 만족하는 객체 생성
+const csvFileReader = new CsvFilleReader("football.csv");
 
-let manUnitedWins = 0;
+// 2. MatchReader 인스턴스 생성하고 DataReader 인터페이스 만족하는 무언가를 전달하기
+const matchReader = new MatchReader(csvFileReader);
+matchReader.load();
 
-for (let match of reader.data) {
-  if (match[1] === "Man United" && match[5] === MatchResult.HomeWin) {
-    manUnitedWins++;
-  } else if (match[2] === "Man United" && match[5] === MatchResult.AwayWin) {
-    manUnitedWins++;
-  }
-}
+const summary = new Summary(
+  new WinsAnalysis("Man United"),
+  new ConsoleReport()
+);
 
-console.log(`Man Unite team ${manUnitedWins} games`);
+summary.buildAndPrintReport(matchReader.matches);
